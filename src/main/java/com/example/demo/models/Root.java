@@ -3,5 +3,8 @@ package com.example.demo.models;
 import java.util.ArrayList;
 
 public class Root {
-    public ArrayList<ForecastTimestamp>forecastTimestamps;
+    public Place place;
+    public String forecastType;
+    public String forecastCreationTimeUtc;
+    public ArrayList<ForecastTimestamp> forecastTimestamps;
 }

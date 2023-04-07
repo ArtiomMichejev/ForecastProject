@@ -78,8 +78,13 @@ public class ForecastController {
         var json = loadDataJson("https://api.meteo.lt/v1/places/" + cityCode + "/forecasts/long-term");
         Root obj = createObj(json);
 
+        String str = "";
+        String firstLetter = cityCode.substring(0,1).toUpperCase();
+        String endOfAString = cityCode.substring(1);
+        str = firstLetter + endOfAString;
+
         for (var stamp : obj.forecastTimestamps) {
-            var forecast = new ForecastModel(cityCode, stamp.forecastTimeUtc, stamp.airTemperature);
+            var forecast = new ForecastModel(str, stamp.forecastTimeUtc, stamp.airTemperature);
             forecasts.add(forecast);
         }
 

@@ -36,8 +36,9 @@ public class WebSecurityConfig {
 
     //@SuppressWarnings("deprecation")
     @Bean
-    public static NoOpPasswordEncoder passwordEncoder() {
-        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+    public static PasswordEncoder passwordEncoder() {
+        var passwordEncoder = new MessageDigestPasswordEncoder("SHA-1");
+        return passwordEncoder;
     }
 
 

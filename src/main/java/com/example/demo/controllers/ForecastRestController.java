@@ -15,10 +15,15 @@ public class ForecastRestController {
    @PostMapping(value = "/api/forecast", consumes = "application/json")
     public void index(@RequestBody ForecastModel model) {
 
+       String str = "";
+       String firstLetter = model.city.substring(0,1).toUpperCase();
+       String endOfAString = model.city.substring(1);
+       str = firstLetter + endOfAString;
+
        Forecast entity = new Forecast(
                model.date,
                String.valueOf(model.temperature),
-               model.city,
+               str,
                1);
        forecastRepository.save(entity);
 
